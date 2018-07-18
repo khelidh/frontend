@@ -29,5 +29,6 @@ public class CarteService {
     public Long getNombreCarte(Long idJoueur, TypeCarte type){
         return carteDAO.findNombreCarte(idJoueur, type);
     }
-
+    
+   
 }

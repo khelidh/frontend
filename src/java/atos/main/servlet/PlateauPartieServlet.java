@@ -20,18 +20,17 @@ public class PlateauPartieServlet extends HttpServlet {
     JoueurService joueurService = new JoueurService();
     
     Long idPartie;
+    Joueur joueurALaMain;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         idPartie = Long.parseLong(req.getParameter("idPartie"));
         
         partieService.demarrer(idPartie);
-//        partieService.commencer(idPartie);
 
         req.setAttribute("partie", partieService.getPartie(idPartie));
         
-        
-        Joueur joueurALaMain = partieService.getJoueurALaMain(idPartie);
+        joueurALaMain = partieService.getJoueurALaMain(idPartie);
         req.setAttribute("joueurALaMain", joueurALaMain);
         
         partieService.distribuer((Long) req.getSession().getAttribute("idPartieRejoint"));
@@ -41,7 +40,9 @@ public class PlateauPartieServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        partieService.piocherCarte(joueurALaMain.getId());
         
+        resp.sendRedirect("afficher-cartes-servlet");
     }
     
 }

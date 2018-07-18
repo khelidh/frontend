@@ -82,7 +82,7 @@ public class PartieService {
 
             List<Joueur> joueurs = partieDAO.findJoueursOrderByPosition(idPartie);
             joueurs.get(POSITION_DE_DEPART).setEtat(EtatJoueur.A_LA_MAIN);
-            serviceJoueur.updateJoueur(joueurs.get(0));
+            serviceJoueur.updateJoueur(joueurs.get(POSITION_DE_DEPART));
 
             for (int i = 1; i < joueurs.size(); i++) {
                 joueurs.get(i).setEtat(EtatJoueur.PAS_LA_MAIN);
@@ -232,8 +232,13 @@ public class PartieService {
         carteDAO.insert(carte);
         
         // Update état du joueur
-        joueur.setEtat(EtatJoueur.PAS_LA_MAIN);
-        serviceJoueur.updateJoueur(joueur);
+//        joueur.setEtat(EtatJoueur.PAS_LA_MAIN);
+//        serviceJoueur.updateJoueur(joueur);
+    }
+    
+    public void passerTour(Long idJoueur){
+        piocherCarte(idJoueur);
+        getNextDealer(idJoueur);
     }
 
     public void jouer(Long idJoueur) {

@@ -53,30 +53,12 @@
 
 
                 <div id="mainJoueur">
-                    <div class="carte">
-                        <img class="cartes" src="image/carte_aile_de_chauve_souris.png" alt="aile_chauve_souris"/>
-                        <p>0</p>
-                    </div>
-                    <div class="carte">
-                        <img class="cartes" src="image/carte_corne_de_licorne.png" alt="bave"/>
-                        <p>0</p>
-                    </div>
-                    <div class="carte">
-                        <img class="cartes" src="image/carte_corne_de_licorne.png" alt="corne"/>
-                        <p>0</p>
-                    </div>
-                    <div class="carte">
-                        <img class="cartes" src="image/carte_mandragore.png" alt="lip"/>
-                        <p>0</p>
-                    </div>
-                    <div class="carte">
-                        <img class="cartes" src="image/carte_mandragore.png" alt="mandragore"/>
-                        <p>0</p>
-                    </div>
                 </div>
 
-                <button type="submit" form="POST" >Passer</button>
+                <!--<button type="submit" form="POST">Passer</button>-->
+                <a href="<c:url value='/passer-tour-servlet'/>">Passer</a>
                 <button>Lancer</button>
+                <input id="boutonPasser" type="button" value="Passer" name="PasserTOUR"/>
 
             </main>
         </div>
