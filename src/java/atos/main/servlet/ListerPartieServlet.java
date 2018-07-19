@@ -20,17 +20,15 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ListerPartieServlet", urlPatterns = {"/lister-partie-servlet"})
 public class ListerPartieServlet extends HttpServlet {
-
     PartieService partieService = new PartieService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         
         List<Partie> parties = partieService.getPartiesEnPrepapration();
-        
-        req.setAttribute("parties", parties);
+        if (parties != null)
+            req.setAttribute("parties", parties);
         
         req.getRequestDispatcher("LISTE_PARTIE.jsp").forward(req, resp);
     }
-
 }

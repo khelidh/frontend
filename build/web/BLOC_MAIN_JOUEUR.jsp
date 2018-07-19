@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="mainJoueur">
     <div class="carte">
         <img class="cartes" src="image/carte_aile_de_chauve_souris.png" alt="aile chauve souris"/>
-        <p>${AILE_DE_CHAUVE_SOURIS}</p>
+        <p>${TypeCarte.AILE_DE_CHAUVE_SOURIS}</p>
     </div>
     <div class="carte">
         <img class="cartes" src="image/carte_corne_de_licorne.png" alt="bave"/>
@@ -20,3 +21,17 @@
         <p>${MANDRAGORE}</p>
     </div>
 </div>
+
+<div id="mainJoueur">
+    <c:forEach items="${cartes}" var="carte">
+
+        <c:if test="${carte.getType() eq AILE_DE_CHAUVE_SOURIS}">
+            <div class="carte">
+               <img class="cartes" src="image/carte_aile_de_chauve_souris.png" alt="aile chauve souris"/>
+            </div>
+        </c:if>
+
+    </c:forEach>
+
+</div>
+

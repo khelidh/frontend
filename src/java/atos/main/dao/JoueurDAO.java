@@ -44,11 +44,12 @@ public class JoueurDAO {
     }
     
     public List<Joueur> findAllFromPartieExecptOne(Joueur joueur){
+        
         EntityManager em = makeEM();
-        String requete = ""
-                + " SELECT j"
+        String requete = "SELECT j"
                 + " FROM Joueur j"
-                + " WHERE j.partie.id = :idPartie"
+                + " JOIN j.partie p"
+                + " WHERE p.id = :idPartie"
                 + " AND j.id != :idJoueur"
                 + " AND j.etat in(:etatJoueur,:etatJoueur2, :etatJoueur3)";
 

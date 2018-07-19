@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package atos.main.service;
 
 import atos.main.dao.CarteDAO;
@@ -18,11 +13,9 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
  * @author mama
  */
 public class PartieService {
-
     //////////////////////
     //  CONSTANTES
     /////////////////////
@@ -320,7 +313,7 @@ public class PartieService {
     public void jouerSortPANEL(Long idJoueur, TypeCarte type1, TypeCarte type2) {
         String sort = determinerSort(type1, type2);
         supprimerDeuxCartes(idJoueur, type1, type2);
-        lancerSort(idJoueur, sort);
+        //lancerSortPANEL(idJoueur, idCible, idJoueur, sort);
     }
 
     public String determinerSort(TypeCarte type1, TypeCarte type2) {
@@ -405,7 +398,7 @@ public class PartieService {
             }
         }
     }
-    public void lancerSortPANEL(Long idJoueur, Long idCible, Long idCarte, String sort) {
+    public void lancerSortPANEL(Long idJoueur, Long idCible, Long idCarteJetee, String sort) {
         switch (sort) {
             case (SORT_FAILED): {
                 break;
@@ -415,7 +408,7 @@ public class PartieService {
                 break;
             }
             case (SORT_HYPSNOSE): {
-                lancerSortHypnosePANEL(idJoueur, idCible, idCarte);
+                lancerSortHypnosePANEL(idJoueur, idCible, idCarteJetee);
                 break;
             }
             case (SORT_DIVINATION): {

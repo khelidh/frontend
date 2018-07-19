@@ -55,10 +55,8 @@
                 <div id="mainJoueur">
                 </div>
 
-                <!--<button type="submit" form="POST">Passer</button>-->
-                <a href="<c:url value='/passer-tour-servlet'/>">Passer</a>
-                <button>Lancer</button>
-                <input id="boutonPasser" type="button" value="Passer" name="PasserTOUR"/>
+                <input class="bouton boutonLancer" type="button" value="Lancer" name="LancerSORT"/>
+                <input class="bouton boutonPasser" type="button" value="Passer" name="PasserTOUR"/>
 
             </main>
         </div>

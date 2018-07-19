@@ -5,8 +5,10 @@
  */
 package atos.main.servlet.updateServlet;
 
+import atos.main.entity.Carte;
 import atos.main.service.PartieService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,19 +19,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrateur
  */
-@WebServlet(name = "PasserTourServlet", urlPatterns = {"/passer-tour-servlet"})
-public class PasserTourServlet extends HttpServlet {
-
-    PartieService partieService = new PartieService();
+@WebServlet(name = "LancerSortServlet", urlPatterns = {"/lancer-sort-servlet"})
+public class LancerSortServlet extends HttpServlet {
     
+    PartieService partieService = new PartieService();
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("PASSER TOUR");
-        Long idJoueur = (Long) req.getSession().getAttribute("idJoueurPrincipal");
-        partieService.passerTour(idJoueur);
+        Carte.TypeCarte selection1, selection2;
+        
+        Long idJoueur = (Long) req.getSession().getAttribute("idJoueur");
+//        partieService.determinerSort(selection1, selection2);
     }
-    
     
     
 }
