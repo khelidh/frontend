@@ -19,9 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "PasserTourServlet", urlPatterns = {"/passer-tour-servlet"})
 public class PasserTourServlet extends HttpServlet {
-
     PartieService partieService = new PartieService();
-    
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,7 +27,4 @@ public class PasserTourServlet extends HttpServlet {
         Long idJoueur = (Long) req.getSession().getAttribute("idJoueurPrincipal");
         partieService.passerTour(idJoueur);
     }
-    
-    
-    
 }

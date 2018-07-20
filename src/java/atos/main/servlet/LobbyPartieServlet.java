@@ -26,8 +26,7 @@ public class LobbyPartieServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        idPartie = Long.parseLong(req.getParameter("idPartie"));
-      
+        idPartie = (Long) req.getSession().getAttribute("idPartieRejoint");
         Partie partie = partieService.getPartie(idPartie);
         
         req.setAttribute("partie", partie);

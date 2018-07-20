@@ -79,10 +79,9 @@
                                         <a class="boutonRejoindre"href="<c:url value='/rejoindre-partie-servlet?idPartie=${partie.id}'/>">Rejoindre cette partie</a>
                                     </div>
                                 </div>
+                                    
                             </c:forEach>
                         </c:if>
-
-
 
                     </div>
 

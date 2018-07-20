@@ -1,6 +1,7 @@
 package atos.main.servlet;
 
 import atos.main.entity.Joueur;
+import atos.main.entity.Partie;
 import atos.main.service.JoueurService;
 import atos.main.service.PartieService;
 import java.io.IOException;
@@ -24,25 +25,21 @@ public class PlateauPartieServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        idPartie = Long.parseLong(req.getParameter("idPartie"));
+        idPartie = (Long) req.getSession().getAttribute("idPartieRejoint");
+        
+        Partie partie = partieService.getPartie(idPartie);
         
         partieService.demarrer(idPartie);
 
-        req.setAttribute("partie", partieService.getPartie(idPartie));
+        req.setAttribute("partie", partie);
         
         joueurALaMain = partieService.getJoueurALaMain(idPartie);
         req.setAttribute("joueurALaMain", joueurALaMain);
         
-        partieService.distribuer((Long) req.getSession().getAttribute("idPartieRejoint"));
-        
+        partieService.distribuer(idPartie);
         req.getRequestDispatcher("PLATEAU_PARTIE.jsp").forward(req, resp);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        partieService.piocherCarte(joueurALaMain.getId());
-        
-        resp.sendRedirect("afficher-cartes-servlet");
-    }
+   
     
 }

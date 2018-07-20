@@ -42,6 +42,6 @@ public class RejoindrePartieServlet extends HttpServlet {
         req.getSession().setAttribute("idPartieRejoint", idPartie);
         req.getSession().setAttribute("idJoueurPrincipal", idJoueurPrincipal);
         
-        resp.sendRedirect("lobby-partie-servlet?idPartie=" + idPartie);
+        resp.sendRedirect("lobby-partie-servlet");
     }
 }

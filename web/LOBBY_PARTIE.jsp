@@ -31,7 +31,7 @@
                 <p>${joueur.pseudo}</p>
             </c:forEach>
                 
-            <a href="<c:url value='/plateau-partie-servlet?idPartie=${partie.id}'/>">Démarrer la partie</a>
+            <a href="<c:url value='/plateau-partie-servlet'/>">Démarrer la partie</a>
             <a href="<c:url value='/lister-partie-servlet'/>">Retour</a>
         </div>
         
