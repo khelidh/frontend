@@ -28,29 +28,11 @@
             <br>
             <br>
 
-            <header id="informationPartie">
-                
-
-            </header>
-
+            <c:import url="BLOC_INFORMATION.jsp"/>
+            
             <main>
-                <div id="listeJoueurs">
-                    <c:forEach items="${partie.joueurs}" var="joueur">
-                        <c:if test="${joueur.id ne idJoueurPrincipal}">
-                            
-                            <div class="mainBot">
-                                <p>${joueur.pseudo}</p>
-                                <img class="dosCarte" src="image/dos_de_carte.png" width="300" height="500" alt="dos de carte"/>
-                                <p>${joueur.cartes.size()}</p>
-                            </div>
-
-                        </c:if>
-                    </c:forEach>
-                </div>
-
-
-                <div id="mainJoueur">
-                </div>
+                <c:import url="BLOC_JOUEURS.jsp"/>
+                <c:import url="BLOC_MAIN_JOUEUR.jsp"/>
 
                 <input class="bouton boutonLancer" type="button" value="Lancer" name="LancerSORT"/>
                 <input class="bouton boutonPasser" type="button" value="Passer" name="PasserTOUR"/>

@@ -35,7 +35,7 @@ public class CarteDAO {
         em.getTransaction().begin();
         Carte c = em.find(Carte.class, id);
         em.remove(c);
-        em.getTransaction().commit(); 
+        em.getTransaction().commit();
     }
     public void update(Carte carte){
         EntityManager em = makeEM();

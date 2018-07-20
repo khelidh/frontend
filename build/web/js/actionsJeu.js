@@ -25,18 +25,19 @@ $(document).ready(function (e) {
     $('.boutonLancer').click(function (e) {
 
         if (selection1 !== null && selection2 !== null) {
-            $.get('lancer-sort-servlet?selection1=' + selection1);
+            $.get('lancer-sort-servlet?selection1=' + selection1 + "&selection2=" + selection2);
+            alert("-> s1 : " + selection1 + "  ---  s2 : " + selection2);
         }
     });
+    
+    
+    
 
-
-
-    $('.carte img').click(function (e) {
-
-        if ($(this).hasClass('selectionCarte')) {
-            $(this).removeClass('selectionCarte');
-        } else {
-            $(this).addClass('selectionCarte');
-        }
-    });
+//    $('.carte img').click(function (e) {
+//        if ($(this).hasClass('selectionCarte')){
+//            $(this).removeClass('selectionCarte');
+//        } else {
+//            $(this).addClass('selectionCarte');
+//        }
+//    });
 });

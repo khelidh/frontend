@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *
  * @author Administrateur
  */
+
 @WebServlet(name = "PlateauPartieServlet", urlPatterns = {"/plateau-partie-servlet"})
 public class PlateauPartieServlet extends HttpServlet {
     PartieService partieService = new PartieService();
@@ -28,9 +28,9 @@ public class PlateauPartieServlet extends HttpServlet {
         idPartie = (Long) req.getSession().getAttribute("idPartieRejoint");
         
         Partie partie = partieService.getPartie(idPartie);
-        
-        partieService.demarrer(idPartie);
 
+        partieService.demarrer(idPartie);
+        
         req.setAttribute("partie", partie);
         
         joueurALaMain = partieService.getJoueurALaMain(idPartie);
@@ -39,7 +39,4 @@ public class PlateauPartieServlet extends HttpServlet {
         partieService.distribuer(idPartie);
         req.getRequestDispatcher("PLATEAU_PARTIE.jsp").forward(req, resp);
     }
-
-   
-    
 }
