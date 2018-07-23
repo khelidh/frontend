@@ -27,13 +27,14 @@
             <p>Plateau</p>
             <br>
             <br>
+            <header>
+                <c:import url="BLOC_INFORMATION.jsp"/>
+            </header>
 
-            <c:import url="BLOC_INFORMATION.jsp"/>
-            
+
             <main>
                 <c:import url="BLOC_JOUEURS.jsp"/>
                 <c:import url="BLOC_MAIN_JOUEUR.jsp"/>
-
                 <input class="bouton boutonLancer" type="button" value="Lancer" name="LancerSORT"/>
                 <input class="bouton boutonPasser" type="button" value="Passer" name="PasserTOUR"/>
 

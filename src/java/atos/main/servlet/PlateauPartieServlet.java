@@ -21,7 +21,7 @@ public class PlateauPartieServlet extends HttpServlet {
     JoueurService joueurService = new JoueurService();
     
     Long idPartie;
-    Joueur joueurALaMain;
+    Joueur joueurALaMain, joueurPrincipal;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,14 +29,18 @@ public class PlateauPartieServlet extends HttpServlet {
         
         Partie partie = partieService.getPartie(idPartie);
 
-        partieService.demarrer(idPartie);
+        
         
         req.setAttribute("partie", partie);
         
         joueurALaMain = partieService.getJoueurALaMain(idPartie);
         req.setAttribute("joueurALaMain", joueurALaMain);
         
-        partieService.distribuer(idPartie);
+        Long idJoueurPrincipal = (Long) req.getSession().getAttribute("idJoueurPrincipal");
+        joueurPrincipal = partieService.getJoueur(idJoueurPrincipal);
+        
+        req.setAttribute("joueurPricipal", joueurPrincipal);
+        
         req.getRequestDispatcher("PLATEAU_PARTIE.jsp").forward(req, resp);
     }
 }

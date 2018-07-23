@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "LobbyPartieServlet", urlPatterns = {"/lobby-partie-servlet"})
 public class LobbyPartieServlet extends HttpServlet {
-    
+
     PartieService partieService = new PartieService();
     Long idPartie;
 
@@ -28,9 +28,19 @@ public class LobbyPartieServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         idPartie = (Long) req.getSession().getAttribute("idPartieRejoint");
         Partie partie = partieService.getPartie(idPartie);
-        
+
         req.setAttribute("partie", partie);
-        
+
         req.getRequestDispatcher("LOBBY_PARTIE.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        idPartie = (Long) req.getSession().getAttribute("idPartieRejoint");
+        partieService.demarrer(idPartie);
+        partieService.distribuer(idPartie);
+        
+        resp.sendRedirect("plateau-partie-servlet");
+    }
+
 }

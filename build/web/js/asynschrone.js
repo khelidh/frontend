@@ -7,4 +7,8 @@ $(document).ready(function (e) {
     $('.boutonLancer').click(function(e) {
         $.get('lancer-sort-servlet');
     });
+    
+//    $('.boutonDemarrer').click(function(e) {
+//        $.get('plateau-partie-servlet');
+//    });
 });

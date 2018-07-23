@@ -23,7 +23,6 @@ public class PasserTourServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("PASSER TOUR");
         Long idJoueur = (Long) req.getSession().getAttribute("idJoueurPrincipal");
         partieService.passerTour(idJoueur);
     }
